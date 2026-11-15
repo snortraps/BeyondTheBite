@@ -1,1 +1,2943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Beyond the Bite | Official Archives</title>
+
+<meta name="description" content="The Beyond the Bite Wiki — an archive documenting Performers, Survivors, locations, gameplay, and the world of Beyond the Bite.">
+
+<meta name="theme-color" content="#09070e">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap');
+
+/* =========================================
+   GLOBAL VARIABLES
+========================================= */
+
+:root {
+    --bg: #09070e;
+    --bg-secondary: #0e0a15;
+    --panel: #120d1b;
+    --panel-hover: #1a1025;
+
+    --accent: #bd38dc;
+    --accent-light: #e66aff;
+    --accent-dark: #79249a;
+
+    --text: #eee8f3;
+    --muted: #96899f;
+    --dim: #62586d;
+
+    --border: rgba(189, 56, 220, 0.2);
+    --border-bright: rgba(189, 56, 220, 0.45);
+
+    --heading: 'Barlow Condensed', sans-serif;
+    --mono: 'Share Tech Mono', monospace;
+
+    --sidebar-width: 245px;
+}
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background-effects {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 30%,
+            rgba(112, 30, 143, 0.13),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 10% 90%,
+            rgba(75, 23, 102, 0.12),
+            transparent 40%
+        ),
+        linear-gradient(
+            180deg,
+            #100b18 0%,
+            #09070e 100%
+        );
+}
+
+.background-grid {
+    position: fixed;
+    inset: 0;
+    z-index: -4;
+    pointer-events: none;
+    opacity: 0.2;
+
+    background-image:
+        linear-gradient(
+            rgba(189, 56, 220, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(189, 56, 220, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+}
+
+.noise {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0.12;
+
+    background-image: url(
+        "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E"
+    );
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    z-index: 19;
+    pointer-events: none;
+    opacity: 0.055;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0, 0, 0, 0.8) 4px
+    );
+}
+
+/* =========================================
+   TOP HEADER
+========================================= */
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 48px;
+
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    background: rgba(8, 6, 13, 0.96);
+
+    border-bottom: 2px solid var(--accent);
+
+    box-shadow:
+        0 2px 18px rgba(189, 56, 220, 0.13);
+
+    backdrop-filter: blur(12px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--accent-light);
+
+    font-family: var(--heading);
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 12px rgba(189, 56, 220, 0.6);
+}
+
+.brand-icon {
+    width: 25px;
+    height: 25px;
+
+    display: grid;
+    place-items: center;
+
+    background: rgba(189, 56, 220, 0.15);
+
+    border: 1px solid var(--accent);
+
+    color: var(--accent-light);
+
+    font-family: var(--heading);
+    font-weight: 900;
+
+    clip-path: polygon(
+        50% 0%,
+        62% 10%,
+        78% 5%,
+        86% 20%,
+        100% 30%,
+        92% 48%,
+        100% 65%,
+        83% 76%,
+        80% 94%,
+        60% 90%,
+        50% 100%,
+        38% 90%,
+        19% 96%,
+        15% 78%,
+        0% 66%,
+        8% 48%,
+        0% 30%,
+        17% 20%,
+        23% 5%,
+        40% 10%
+    );
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.topbar-right a {
+    transition: 0.2s;
+}
+
+.topbar-right a:hover {
+    color: var(--accent-light);
+}
+
+.online-indicator {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #e66aff;
+}
+
+.online-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #d74cff;
+
+    box-shadow: 0 0 8px #d74cff;
+
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    position: fixed;
+
+    top: 48px;
+    left: 0;
+    bottom: 0;
+
+    width: var(--sidebar-width);
+
+    z-index: 90;
+
+    padding: 25px 15px 35px;
+
+    background: rgba(11, 8, 16, 0.96);
+
+    border-right: 1px solid var(--border);
+
+    overflow-y: auto;
+
+    transition: transform 0.3s ease;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--accent-dark);
+}
+
+.sidebar-label {
+    margin: 15px 10px 10px;
+
+    color: var(--dim);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 12px;
+
+    margin-bottom: 3px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    letter-spacing: 0.5px;
+
+    border: 1px solid transparent;
+
+    transition: 0.2s;
+
+    cursor: pointer;
+}
+
+.sidebar-link:hover {
+    color: var(--text);
+
+    background: rgba(189, 56, 220, 0.07);
+}
+
+.sidebar-link.active {
+    color: var(--accent-light);
+
+    background: rgba(189, 56, 220, 0.12);
+
+    border-color: rgba(189, 56, 220, 0.2);
+
+    box-shadow:
+        inset 2px 0 0 var(--accent);
+}
+
+.sidebar-icon {
+    width: 17px;
+
+    text-align: center;
+
+    color: var(--accent);
+    font-size: 15px;
+}
+
+.sidebar-bottom {
+    margin-top: 35px;
+    padding: 15px 12px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(189, 56, 220, 0.035);
+}
+
+.sidebar-bottom h4 {
+    color: var(--accent-light);
+
+    font-family: var(--heading);
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.sidebar-bottom p {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.main {
+    margin-left: var(--sidebar-width);
+    padding-top: 48px;
+    min-height: 100vh;
+}
+
+.page {
+    display: none;
+
+    width: min(1150px, calc(100% - 70px));
+
+    margin: auto;
+
+    padding: 50px 0 90px;
+
+    animation: pageAppear 0.35s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes pageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   PAGE HEADERS
+========================================= */
+
+.page-header {
+    position: relative;
+
+    padding: 30px 0 25px;
+
+    border-bottom: 1px solid var(--border);
+
+    margin-bottom: 30px;
+}
+
+.page-tag {
+    color: var(--accent-light);
+
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.page-header h1 {
+    font-family: var(--heading);
+
+    font-size: clamp(38px, 6vw, 60px);
+
+    line-height: 0.95;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.page-header p {
+    max-width: 650px;
+
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    line-height: 1.9;
+}
+
+.page-number {
+    position: absolute;
+
+    right: 0;
+    bottom: 25px;
+
+    color: var(--dim);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   HOME HERO
+========================================= */
+
+.home-hero {
+    min-height: 520px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding: 60px 20px;
+
+    overflow: hidden;
+}
+
+.home-hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 470px;
+    height: 470px;
+
+    border: 1px solid rgba(189, 56, 220, 0.1);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 30px rgba(189, 56, 220, 0.018),
+        0 0 0 70px rgba(189, 56, 220, 0.015);
+
+    pointer-events: none;
+}
+
+.hero-emblem {
+    width: 145px;
+    height: 145px;
+
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 28px;
+}
+
+.hero-ring {
+    position: absolute;
+
+    inset: 0;
+
+    border: 12px solid var(--accent);
+
+    border-radius: 50%;
+
+    filter:
+        drop-shadow(0 0 14px rgba(189, 56, 220, 0.6));
+
+    box-shadow:
+        inset 0 0 20px rgba(189, 56, 220, 0.2);
+}
+
+.hero-ring::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -20px;
+
+    border: 1px dashed rgba(230, 106, 255, 0.4);
+
+    border-radius: 50%;
+
+    animation: rotate 35s linear infinite;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-center {
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: #100a19;
+
+    border: 2px solid rgba(230, 106, 255, 0.5);
+
+    color: var(--accent-light);
+
+    font-family: var(--heading);
+    font-size: 35px;
+    font-weight: 900;
+
+    text-shadow:
+        0 0 20px var(--accent);
+}
+
+.home-hero h1 {
+    font-family: var(--heading);
+
+    font-size: clamp(42px, 7vw, 76px);
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #eacaf4 40%,
+        #bd38dc 80%,
+        #70208e 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    filter:
+        drop-shadow(0 3px 0 #421055);
+}
+
+.hero-subtitle {
+    margin-top: 15px;
+
+    color: #d3bedc;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.hero-divider {
+    width: 210px;
+    height: 1px;
+
+    margin: 23px auto;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent),
+        transparent
+    );
+}
+
+.hero-description {
+    max-width: 490px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    line-height: 2;
+}
+
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 27px;
+
+    padding: 13px 24px;
+
+    background: rgba(189, 56, 220, 0.12);
+
+    border: 1px solid var(--accent);
+
+    color: #f3d9ff;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    transition: 0.25s;
+
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background: var(--accent);
+
+    box-shadow:
+        0 0 25px rgba(189, 56, 220, 0.3);
+}
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin: 35px 0 20px;
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.section-heading h2 {
+    font-family: var(--heading);
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.section-heading span {
+    color: var(--accent-light);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.search-box {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 25px;
+
+    background: rgba(17, 12, 25, 0.95);
+
+    border: 1px solid var(--border);
+
+    transition: 0.2s;
+}
+
+.search-box:focus-within {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 15px rgba(189, 56, 220, 0.12);
+}
+
+.search-symbol {
+    padding: 0 16px;
+
+    color: var(--accent-light);
+
+    font-size: 17px;
+}
+
+.search-box input {
+    width: 100%;
+
+    padding: 15px 12px 15px 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 11px;
+}
+
+.search-box input::placeholder {
+    color: var(--dim);
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+.card {
+    position: relative;
+
+    min-height: 170px;
+
+    padding: 21px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(26, 17, 37, 0.96),
+            rgba(12, 9, 18, 0.98)
+        );
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+
+    transition: 0.25s;
+
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--accent);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(55, 22, 69, 0.8),
+            rgba(15, 9, 22, 0.98)
+        );
+}
+
+.card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -45px;
+    bottom: -55px;
+
+    border: 1px solid rgba(189, 56, 220, 0.18);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 17px rgba(189, 56, 220, 0.025),
+        0 0 0 35px rgba(189, 56, 220, 0.02);
+}
+
+.card-code {
+    color: var(--accent-light);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.card-icon {
+    margin: 15px 0 8px;
+
+    color: var(--accent-light);
+
+    font-size: 23px;
+}
+
+.card h3 {
+    font-family: var(--heading);
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.card p {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+/* =========================================
+   ARTICLE CARDS
+========================================= */
+
+.article-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+}
+
+.article-card {
+    padding: 20px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    transition: 0.2s;
+}
+
+.article-card:hover {
+    border-color: var(--accent);
+    background: var(--panel-hover);
+}
+
+.article-card .article-label {
+    color: var(--accent-light);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.article-card h3 {
+    margin-top: 10px;
+
+    font-family: var(--heading);
+
+    font-size: 24px;
+
+    letter-spacing: 1px;
+}
+
+.article-card p {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+/* =========================================
+   INFO PANELS
+========================================= */
+
+.info-panel {
+    margin-top: 20px;
+
+    padding: 22px;
+
+    background: rgba(18, 13, 27, 0.9);
+
+    border: 1px solid var(--border);
+}
+
+.info-panel h3 {
+    font-family: var(--heading);
+
+    font-size: 22px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.info-panel p {
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.9;
+}
+
+.info-list {
+    list-style: none;
+
+    margin-top: 15px;
+}
+
+.info-list li {
+    padding: 12px 0;
+
+    border-bottom: 1px solid rgba(189, 56, 220, 0.1);
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+.info-list li:last-child {
+    border-bottom: none;
+}
+
+.info-list strong {
+    color: var(--text);
+}
+
+/* =========================================
+   STATUS LABELS
+========================================= */
+
+.status {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border: 1px solid rgba(189, 56, 220, 0.3);
+
+    color: var(--accent-light);
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.status.planned {
+    color: #e6b85f;
+
+    border-color: rgba(230, 184, 95, 0.35);
+}
+
+.status.unknown {
+    color: #9d92a7;
+
+    border-color: rgba(157, 146, 167, 0.3);
+}
+
+/* =========================================
+   NOTICES
+========================================= */
+
+.notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    margin-top: 25px;
+
+    padding: 19px;
+
+    background: rgba(230, 184, 95, 0.045);
+
+    border: 1px solid rgba(230, 184, 95, 0.25);
+}
+
+.notice-icon {
+    color: #e6b85f;
+
+    font-size: 19px;
+}
+
+.notice h3 {
+    font-family: var(--heading);
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+    color: #e6b85f;
+}
+
+.notice p {
+    margin-top: 6px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+/* =========================================
+   FEATURED MAP
+========================================= */
+
+.map-feature {
+    position: relative;
+
+    min-height: 280px;
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    background:
+        radial-gradient(
+            ellipse at 75% 20%,
+            rgba(189, 56, 220, 0.15),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #1c1026,
+            #100b17 65%,
+            #0a0810
+        );
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+}
+
+.map-feature::before {
+    content: "LOCATION 001";
+
+    position: absolute;
+
+    top: 25px;
+    left: 25px;
+
+    color: var(--accent-light);
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.map-feature::after {
+    content: "F";
+
+    position: absolute;
+
+    right: 35px;
+    top: 20px;
+
+    font-family: var(--heading);
+
+    font-size: 190px;
+
+    font-weight: 900;
+
+    color: rgba(189, 56, 220, 0.06);
+}
+
+.map-feature h2 {
+    position: relative;
+    z-index: 1;
+
+    font-family: var(--heading);
+
+    font-size: 45px;
+
+    letter-spacing: 2px;
+}
+
+.map-feature p {
+    position: relative;
+    z-index: 1;
+
+    max-width: 520px;
+
+    margin-top: 10px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.9;
+}
+
+/* =========================================
+   DATABASE TABLE
+========================================= */
+
+.database {
+    border: 1px solid var(--border);
+
+    background: rgba(15, 10, 22, 0.85);
+}
+
+.database-header,
+.database-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px 18px;
+}
+
+.database-header {
+    color: var(--accent-light);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    background: rgba(189, 56, 220, 0.06);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.database-row {
+    border-bottom: 1px solid rgba(189, 56, 220, 0.1);
+}
+
+.database-row:last-child {
+    border-bottom: none;
+}
+
+.database-row h3 {
+    font-family: var(--heading);
+
+    font-size: 19px;
+
+    letter-spacing: 1px;
+}
+
+.database-row p {
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    margin-left: var(--sidebar-width);
+
+    padding: 25px 35px 45px;
+
+    border-top: 1px solid var(--border);
+
+    background: rgba(6, 5, 10, 0.9);
+}
+
+.footer-inner {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.footer-title {
+    color: var(--accent-light);
+
+    font-family: var(--heading);
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.footer-copy {
+    margin-top: 5px;
+
+    color: var(--dim);
+
+    font-size: 9px;
+
+    line-height: 1.8;
+}
+
+.footer-links {
+    display: flex;
+
+    gap: 18px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+.footer-links a:hover {
+    color: var(--accent-light);
+}
+
+/* =========================================
+   BOTTOM SYSTEM BAR
+========================================= */
+
+.system-bar {
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 22px;
+
+    z-index: 110;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 12px;
+
+    background: rgba(7, 5, 11, 0.96);
+
+    border-top: 1px solid var(--border);
+
+    color: #9270a3;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
+
+.mobile-menu {
+    display: none;
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+
+    color: var(--accent-light);
+
+    padding: 6px 10px;
+
+    cursor: pointer;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+
+    :root {
+        --sidebar-width: 210px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .topbar {
+        padding: 0 12px;
+    }
+
+    .topbar-right {
+        gap: 10px;
+    }
+
+    .topbar-right a {
+        display: none;
+    }
+
+    .brand {
+        font-size: 16px;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        width: 260px;
+        box-shadow: 15px 0 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .footer {
+        margin-left: 0;
+    }
+
+    .page {
+        width: calc(100% - 35px);
+        padding-top: 30px;
+    }
+
+    .home-hero {
+        min-height: 580px;
+    }
+
+    .hero-emblem {
+        width: 125px;
+        height: 125px;
+    }
+
+    .hero-center {
+        width: 85px;
+        height: 85px;
+        font-size: 29px;
+    }
+
+    .hero-ring {
+        border-width: 10px;
+    }
+
+    .hero-ring::after {
+        inset: -15px;
+    }
+
+    .hero-subtitle {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .page-number {
+        display: none;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .card-grid,
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        min-height: 145px;
+    }
+
+    .page-header h1 {
+        font-size: 42px;
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
+    }
+
+    .section-heading span {
+        font-size: 7px;
+    }
+
+    .database-row {
+        align-items: flex-start;
+    }
+
+    .system-bar {
+        font-size: 7px;
+    }
+
+    .system-bar span:last-child {
+        display: none;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-effects"></div>
+<div class="background-grid"></div>
+<div class="noise"></div>
+<div class="scanlines"></div>
+
+<!-- =====================================
+     TOP BAR
+===================================== -->
+
+<header class="topbar">
+
+    <a href="#home" class="brand" onclick="showPage('home')">
+        <span class="brand-icon">B</span>
+        BEYOND THE BITE
+    </a>
+
+    <div class="topbar-right">
+
+        <button class="mobile-menu" onclick="toggleSidebar()">
+            ☰
+        </button>
+
+        <a href="#performers" onclick="showPage('performers')">
+            PERFORMERS
+        </a>
+
+        <a href="#maps" onclick="showPage('maps')">
+            MAPS
+        </a>
+
+        <a href="#updates" onclick="showPage('updates')">
+            UPDATES
+        </a>
+
+        <span class="online-indicator">
+            <span class="online-dot"></span>
+            ARCHIVE ONLINE
+        </span>
+
+        <span id="clock">00:00:00</span>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================
+     SIDEBAR
+===================================== -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-label">
+        MAIN DIRECTORY
+    </div>
+
+    <a class="sidebar-link active" data-page="home" onclick="showPage('home')">
+        <span class="sidebar-icon">⌂</span>
+        Home
+    </a>
+
+    <a class="sidebar-link" data-page="performers" onclick="showPage('performers')">
+        <span class="sidebar-icon">◈</span>
+        Performers
+    </a>
+
+    <a class="sidebar-link" data-page="survivors" onclick="showPage('survivors')">
+        <span class="sidebar-icon">◉</span>
+        Survivors
+    </a>
+
+    <a class="sidebar-link" data-page="maps" onclick="showPage('maps')">
+        <span class="sidebar-icon">⌖</span>
+        Maps & Locations
+    </a>
+
+
+    <div class="sidebar-label">
+        GAME INFORMATION
+    </div>
+
+    <a class="sidebar-link" data-page="gameplay" onclick="showPage('gameplay')">
+        <span class="sidebar-icon">▣</span>
+        Gameplay
+    </a>
+
+    <a class="sidebar-link" data-page="abilities" onclick="showPage('abilities')">
+        <span class="sidebar-icon">⌁</span>
+        Abilities
+    </a>
+
+    <a class="sidebar-link" data-page="items" onclick="showPage('items')">
+        <span class="sidebar-icon">⌑</span>
+        Items
+    </a>
+
+
+    <div class="sidebar-label">
+        ADDITIONAL INFORMATION
+    </div>
+
+    <a class="sidebar-link" data-page="lore" onclick="showPage('lore')">
+        <span class="sidebar-icon">◌</span>
+        Lore
+    </a>
+
+    <a class="sidebar-link" data-page="updates" onclick="showPage('updates')">
+        <span class="sidebar-icon">⌘</span>
+        Updates
+    </a>
+
+    <a class="sidebar-link" data-page="about" onclick="showPage('about')">
+        <span class="sidebar-icon">ⓘ</span>
+        About the Wiki
+    </a>
+
+
+    <div class="sidebar-bottom">
+
+        <h4>BEYOND THE BITE</h4>
+
+        <p>
+            An asymmetrical survival horror experience.
+            <br><br>
+            ARCHIVE VERSION: 0.1
+            <br>
+            GAME STATUS: PRE-ALPHA
+        </p>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================
+     MAIN CONTENT
+===================================== -->
+
+<main class="main">
+
+
+<!-- =====================================
+     HOME PAGE
+===================================== -->
+
+<section class="page active" id="page-home">
+
+    <div class="home-hero">
+
+        <div class="hero-emblem">
+            <div class="hero-ring"></div>
+            <div class="hero-center">BTB</div>
+        </div>
+
+        <h1>BEYOND THE BITE</h1>
+
+        <p class="hero-subtitle">
+            THE OFFICIAL COMMUNITY ARCHIVES
+        </p>
+
+        <div class="hero-divider"></div>
+
+        <p class="hero-description">
+            Welcome to the Beyond the Bite archives.
+            Explore the Performers, Survivors, locations,
+            gameplay systems, and information surrounding
+            the experience.
+            <br><br>
+            Not everything is meant to be found.
+        </p>
+
+        <button class="primary-button" onclick="showPage('performers')">
+            <span>></span>
+            EXPLORE THE ARCHIVES
+        </button>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>ARCHIVE DIRECTORY</h2>
+        <span>DIRECTORY // 001</span>
+    </div>
+
+    <div class="search-box">
+
+        <span class="search-symbol">⌕</span>
+
+        <input
+            id="wikiSearch"
+            type="text"
+            placeholder="SEARCH THE ARCHIVES..."
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <div class="card-grid" id="homeCards">
+
+        <div class="card searchable" data-search="performers marionette circus baby springtrap">
+            <span class="card-code">FILE 001</span>
+            <div class="card-icon">◈</div>
+            <h3>Performers</h3>
+            <p>Discover the characters pursuing Survivors throughout each round.</p>
+            <button class="primary-button" onclick="showPage('performers')">OPEN DIRECTORY →</button>
+        </div>
+
+        <div class="card searchable" data-search="survivors players">
+            <span class="card-code">FILE 002</span>
+            <div class="card-icon">◉</div>
+            <h3>Survivors</h3>
+            <p>Learn about the characters attempting to survive.</p>
+            <button class="primary-button" onclick="showPage('survivors')">OPEN DIRECTORY →</button>
+        </div>
+
+        <div class="card searchable" data-search="maps fredbears pizzeria location">
+            <span class="card-code">FILE 003</span>
+            <div class="card-icon">⌖</div>
+            <h3>Maps & Locations</h3>
+            <p>Explore the locations currently planned for the experience.</p>
+            <button class="primary-button" onclick="showPage('maps')">OPEN DIRECTORY →</button>
+        </div>
+
+        <div class="card searchable" data-search="gameplay generators objectives exits rounds">
+            <span class="card-code">FILE 004</span>
+            <div class="card-icon">▣</div>
+            <h3>Gameplay</h3>
+            <p>Understand rounds, objectives, generators, and game mechanics.</p>
+            <button class="primary-button" onclick="showPage('gameplay')">OPEN DIRECTORY →</button>
+        </div>
+
+        <div class="card searchable" data-search="abilities skills echo string snare">
+            <span class="card-code">FILE 005</span>
+            <div class="card-icon">⌁</div>
+            <h3>Abilities</h3>
+            <p>Explore the abilities associated with each character.</p>
+            <button class="primary-button" onclick="showPage('abilities')">OPEN DIRECTORY →</button>
+        </div>
+
+        <div class="card searchable" data-search="lore story history secrets">
+            <span class="card-code">FILE 006</span>
+            <div class="card-icon">◌</div>
+            <h3>Lore</h3>
+            <p>Explore the story and background of Beyond the Bite.</p>
+            <button class="primary-button" onclick="showPage('lore')">OPEN DIRECTORY →</button>
+        </div>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>PROJECT INFORMATION</h2>
+        <span>STATUS // 002</span>
+    </div>
+
+    <div class="database">
+
+        <div class="database-header">
+            <span>PROJECT DETAILS</span>
+            <span>INFORMATION</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Project Name</h3>
+                <p>Current official project title.</p>
+            </div>
+            <span class="status">BEYOND THE BITE</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Genre</h3>
+                <p>Gameplay classification.</p>
+            </div>
+            <span class="status">ASYMMETRICAL HORROR</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Development Status</h3>
+                <p>Current development stage.</p>
+            </div>
+            <span class="status planned">PRE-ALPHA</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Planned Release Performers</h3>
+                <p>Current planned launch lineup.</p>
+            </div>
+            <span class="status">3 CHARACTERS</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Currently Documented Maps</h3>
+                <p>Currently available map documentation.</p>
+            </div>
+            <span class="status">1 MAP</span>
+        </div>
+
+    </div>
+
+
+    <div class="notice">
+
+        <div class="notice-icon">⚠</div>
+
+        <div>
+            <h3>DEVELOPMENT DISCLAIMER</h3>
+
+            <p>
+                Beyond the Bite is currently in development.
+                Information presented throughout this wiki may be
+                incomplete or subject to change. Planned features
+                should not be considered finalized.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     PERFORMERS PAGE
+===================================== -->
+
+<section class="page" id="page-performers">
+
+    <div class="page-header">
+
+        <div class="page-tag">CHARACTER DATABASE // 001</div>
+
+        <h1>PERFORMERS</h1>
+
+        <p>
+            Performers are the opposing characters in Beyond the Bite.
+            Their objective is to hunt down the Survivors and prevent
+            them from completing their objectives.
+        </p>
+
+        <span class="page-number">ARCHIVE 001</span>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>PLANNED RELEASE LINEUP</h2>
+        <span>3 RECORDS FOUND</span>
+    </div>
+
+
+    <div class="article-grid">
+
+        <div class="article-card">
+
+            <span class="article-label">PERFORMER 001</span>
+
+            <h3>MARIONETTE</h3>
+
+            <p>
+                Marionette is one of the planned Performers
+                available at release and an important character
+                in the initial roster.
+            </p>
+
+            <br>
+
+            <span class="status">PLANNED FOR RELEASE</span>
+
+        </div>
+
+
+        <div class="article-card">
+
+            <span class="article-label">PERFORMER 002</span>
+
+            <h3>CIRCUS BABY</h3>
+
+            <p>
+                Circus Baby is part of the planned release lineup.
+                Her character documentation will include
+                abilities, audio, and other confirmed details.
+            </p>
+
+            <br>
+
+            <span class="status">PLANNED FOR RELEASE</span>
+
+        </div>
+
+
+        <div class="article-card">
+
+            <span class="article-label">PERFORMER 003</span>
+
+            <h3>SPRINGTRAP</h3>
+
+            <p>
+                Springtrap is the third currently confirmed
+                character in the planned release lineup.
+            </p>
+
+            <br>
+
+            <span class="status">PLANNED FOR RELEASE</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-panel">
+
+        <h3>PERFORMER INFORMATION</h3>
+
+        <p>
+            Each Performer is intended to have their own identity,
+            abilities, animations, and audio. Character-specific
+            information will be documented as features are finalized.
+        </p>
+
+        <ul class="info-list">
+
+            <li>
+                <strong>Character Abilities:</strong>
+                Unique gameplay abilities associated with individual Performers.
+            </li>
+
+            <li>
+                <strong>Animations:</strong>
+                Character animations and interaction sequences.
+            </li>
+
+            <li>
+                <strong>Audio:</strong>
+                Character-specific sounds and voice lines.
+            </li>
+
+            <li>
+                <strong>Gameplay:</strong>
+                Individual gameplay mechanics and interactions.
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     SURVIVORS PAGE
+===================================== -->
+
+<section class="page" id="page-survivors">
+
+    <div class="page-header">
+
+        <div class="page-tag">CHARACTER DATABASE // 002</div>
+
+        <h1>SURVIVORS</h1>
+
+        <p>
+            Survivors are the players attempting to escape the
+            facility while avoiding the opposing Performer.
+            Cooperation and completing objectives are important
+            parts of the experience.
+        </p>
+
+        <span class="page-number">ARCHIVE 002</span>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>SURVIVOR DATABASE</h2>
+        <span>CHARACTER RECORDS</span>
+    </div>
+
+
+    <div class="info-panel">
+
+        <h3>SURVIVOR INFORMATION</h3>
+
+        <p>
+            Survivor character details and any individual
+            character features will be documented here when
+            officially announced.
+        </p>
+
+        <br>
+
+        <span class="status unknown">DETAILS NOT ANNOUNCED</span>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>SURVIVOR OBJECTIVES</h2>
+        <span>GAMEPLAY INFORMATION</span>
+    </div>
+
+
+    <div class="article-grid">
+
+        <div class="article-card">
+            <span class="article-label">OBJECTIVE 001</span>
+            <h3>COMPLETE OBJECTIVES</h3>
+            <p>
+                Survivors must work toward completing the objectives
+                required to progress through a round.
+            </p>
+        </div>
+
+        <div class="article-card">
+            <span class="article-label">OBJECTIVE 002</span>
+            <h3>AVOID THE PERFORMER</h3>
+            <p>
+                Survivors must avoid being caught by the opposing
+                Performer while completing their tasks.
+            </p>
+        </div>
+
+        <div class="article-card">
+            <span class="article-label">OBJECTIVE 003</span>
+            <h3>SURVIVE</h3>
+            <p>
+                Survival is essential to successfully completing
+                a round.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     MAPS PAGE
+===================================== -->
+
+<section class="page" id="page-maps">
+
+    <div class="page-header">
+
+        <div class="page-tag">LOCATION DATABASE // 001</div>
+
+        <h1>MAPS & LOCATIONS</h1>
+
+        <p>
+            Explore the environments currently documented
+            for Beyond the Bite. Each map is designed to provide
+            its own atmosphere and gameplay environment.
+        </p>
+
+        <span class="page-number">ARCHIVE 003</span>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>AVAILABLE MAP RECORDS</h2>
+        <span>1 LOCATION FOUND</span>
+    </div>
+
+
+    <div class="map-feature">
+
+        <h2>FREDBEAR'S PIZZERIA</h2>
+
+        <p>
+            Fredbear's Pizzeria is the currently documented map
+            for Beyond the Bite. More information, including
+            its layout, points of interest, and gameplay areas,
+            will be added as development progresses.
+        </p>
+
+        <br>
+
+        <span class="status">CURRENT MAP</span>
+
+    </div>
+
+
+    <div class="info-panel">
+
+        <h3>LOCATION RECORD</h3>
+
+        <ul class="info-list">
+
+            <li>
+                <strong>Location Name:</strong>
+                Fredbear's Pizzeria
+            </li>
+
+            <li>
+                <strong>Category:</strong>
+                Pizzeria
+            </li>
+
+            <li>
+                <strong>Map Status:</strong>
+                Currently documented
+            </li>
+
+            <li>
+                <strong>Additional Maps:</strong>
+                No additional maps currently documented.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="notice">
+
+        <div class="notice-icon">⚠</div>
+
+        <div>
+            <h3>MAP DATABASE NOTICE</h3>
+
+            <p>
+                Fredbear's Pizzeria is the only map currently
+                documented in this archive. No additional locations
+                are being presented as confirmed maps.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     GAMEPLAY PAGE
+===================================== -->
+
+<section class="page" id="page-gameplay">
+
+    <div class="page-header">
+
+        <div class="page-tag">GAME SYSTEMS // 001</div>
+
+        <h1>GAMEPLAY</h1>
+
+        <p>
+            Learn about the core gameplay systems that make up
+            Beyond the Bite, including round structure,
+            objectives, movement, and interactions.
+        </p>
+
+        <span class="page-number">ARCHIVE 004</span>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>CORE SYSTEMS</h2>
+        <span>GAMEPLAY RECORDS</span>
+    </div>
+
+
+    <div class="article-grid">
+
+        <div class="article-card">
+            <span class="article-label">SYSTEM 001</span>
+            <h3>ROUND SYSTEM</h3>
+            <p>
+                Beyond the Bite uses a round-based structure
+                where players are assigned opposing roles.
+            </p>
+        </div>
+
+        <div class="article-card">
+            <span class="article-label">SYSTEM 002</span>
+            <h3>ROLE SELECTION</h3>
+            <p>
+                Players are assigned as either a Survivor
+                or the Performer for a round.
+            </p>
+        </div>
+
+        <div class="article-card">
+            <span class="article-label">SYSTEM 003</span>
+            <h3>GENERATORS</h3>
+            <p>
+                Generators are interactive objectives that
+                Survivors must work together to repair.
+            </p>
+        </div>
+
+        <div class="article-card">
+            <span class="article-label">SYSTEM 004</span>
+            <h3>EXITS</h3>
+            <p>
+                Exits are part of the Survivor objective
+                and escape gameplay.
+            </p>
+        </div>
+
+        <div class="article-card">
+            <span class="article-label">SYSTEM 005</span>
+            <h3>MOVEMENT</h3>
+            <p>
+                Movement includes the basic character
+                movement and sprinting systems.
+            </p>
+        </div>
+
+        <div class="article-card">
+            <span class="article-label">SYSTEM 006</span>
+            <h3>STAMINA</h3>
+            <p>
+                Stamina is connected to the movement system
+                and sprinting.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>ROUND CONFIGURATION</h2>
+        <span>DEVELOPMENT VALUES</span>
+    </div>
+
+
+    <div class="database">
+
+        <div class="database-header">
+            <span>CONFIGURATION</span>
+            <span>CURRENT TEST VALUE</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Minimum Players</h3>
+                <p>Minimum players required to begin a round.</p>
+            </div>
+            <span class="status">2</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Maximum Players</h3>
+                <p>Maximum players supported by the current configuration.</p>
+            </div>
+            <span class="status">6</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Performers Per Round</h3>
+                <p>Number of opposing Performers.</p>
+            </div>
+            <span class="status">1</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Intermission</h3>
+                <p>Time between rounds.</p>
+            </div>
+            <span class="status">15 SECONDS</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Role Selection</h3>
+                <p>Current role selection duration.</p>
+            </div>
+            <span class="status">5 SECONDS</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Round Duration</h3>
+                <p>Current round timer configuration.</p>
+            </div>
+            <span class="status">240 SECONDS</span>
+        </div>
+
+    </div>
+
+
+    <div class="notice">
+
+        <div class="notice-icon">⚠</div>
+
+        <div>
+            <h3>CONFIGURATION DISCLAIMER</h3>
+
+            <p>
+                The values above reflect a development configuration
+                and are not guaranteed to represent the final release.
+                Gameplay balance and round settings may change.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     ABILITIES PAGE
+===================================== -->
+
+<section class="page" id="page-abilities">
+
+    <div class="page-header">
+
+        <div class="page-tag">ABILITY DATABASE // 001</div>
+
+        <h1>ABILITIES</h1>
+
+        <p>
+            Character abilities are an important part of the
+            gameplay experience. This archive will document
+            their functionality and behavior.
+        </p>
+
+        <span class="page-number">ARCHIVE 005</span>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>CHARACTER ABILITIES</h2>
+        <span>ABILITY RECORDS</span>
+    </div>
+
+
+    <div class="info-panel">
+
+        <h3>MARIONETTE</h3>
+
+        <p>
+            Marionette has been the subject of ability concepts
+            involving information gathering and controlling
+            encounters with Survivors.
+        </p>
+
+        <br>
+
+        <span class="status planned">CONCEPT DOCUMENTATION</span>
+
+        <ul class="info-list">
+
+            <li>
+                <strong>Echo:</strong>
+                A proposed ability concept involving briefly
+                revealing information about other players.
+            </li>
+
+            <li>
+                <strong>String Snare:</strong>
+                A proposed ability concept involving Marionette's
+                strings and restricting Survivor movement.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="article-grid">
+
+        <div class="article-card">
+            <span class="article-label">PERFORMER 002</span>
+            <h3>CIRCUS BABY</h3>
+            <p>
+                Circus Baby's finalized ability information
+                has not yet been documented.
+            </p>
+            <br>
+            <span class="status unknown">NOT ANNOUNCED</span>
+        </div>
+
+        <div class="article-card">
+            <span class="article-label">PERFORMER 003</span>
+            <h3>SPRINGTRAP</h3>
+            <p>
+                Springtrap's finalized ability information
+                has not yet been documented.
+            </p>
+            <br>
+            <span class="status unknown">NOT ANNOUNCED</span>
+        </div>
+
+    </div>
+
+
+    <div class="notice">
+
+        <div class="notice-icon">⚠</div>
+
+        <div>
+            <h3>ABILITY DEVELOPMENT NOTICE</h3>
+
+            <p>
+                Ability concepts are not necessarily finalized
+                gameplay features. Confirmed abilities will be
+                documented separately when officially established.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     ITEMS PAGE
+===================================== -->
+
+<section class="page" id="page-items">
+
+    <div class="page-header">
+
+        <div class="page-tag">ITEM DATABASE // 001</div>
+
+        <h1>ITEMS</h1>
+
+        <p>
+            This archive documents equipment, interactable
+            objects, and other items associated with the
+            gameplay experience.
+        </p>
+
+        <span class="page-number">ARCHIVE 006</span>
+
+    </div>
+
+
+    <div class="info-panel">
+
+        <h3>ITEM DIRECTORY</h3>
+
+        <p>
+            Individual item information has not yet been
+            fully documented. Confirmed items and their
+            gameplay functionality will appear here as
+            development progresses.
+        </p>
+
+        <br>
+
+        <span class="status unknown">INFORMATION PENDING</span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     LORE PAGE
+===================================== -->
+
+<section class="page" id="page-lore">
+
+    <div class="page-header">
+
+        <div class="page-tag">STORY ARCHIVES // 001</div>
+
+        <h1>LORE</h1>
+
+        <p>
+            The story and background of Beyond the Bite.
+            Explore the documented history, events, and
+            mysteries surrounding the experience.
+        </p>
+
+        <span class="page-number">ARCHIVE 007</span>
+
+    </div>
+
+
+    <div class="info-panel">
+
+        <h3>STORY ARCHIVE</h3>
+
+        <p>
+            Lore documentation will be introduced as
+            story information is officially revealed.
+            Some narrative details may remain undisclosed
+            during development.
+        </p>
+
+        <br>
+
+        <span class="status unknown">ARCHIVE RESTRICTED</span>
+
+    </div>
+
+
+    <div class="notice">
+
+        <div class="notice-icon">⚠</div>
+
+        <div>
+            <h3>SPOILER NOTICE</h3>
+
+            <p>
+                Story information may contain spoilers.
+                Unreleased narrative details are intentionally
+                excluded from the public archive.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     UPDATES PAGE
+===================================== -->
+
+<section class="page" id="page-updates">
+
+    <div class="page-header">
+
+        <div class="page-tag">DEVELOPMENT RECORDS // 001</div>
+
+        <h1>UPDATES</h1>
+
+        <p>
+            Follow documented changes, development milestones,
+            and announcements associated with Beyond the Bite.
+        </p>
+
+        <span class="page-number">ARCHIVE 008</span>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>DEVELOPMENT STATUS</h2>
+        <span>PROJECT RECORD</span>
+    </div>
+
+
+    <div class="database">
+
+        <div class="database-header">
+            <span>DEVELOPMENT CATEGORY</span>
+            <span>STATUS</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Round Management</h3>
+                <p>Round and role management systems.</p>
+            </div>
+            <span class="status development">IN DEVELOPMENT</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Character Development</h3>
+                <p>Performer characters, animations, and abilities.</p>
+            </div>
+            <span class="status development">IN DEVELOPMENT</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Movement Systems</h3>
+                <p>Player movement and stamina.</p>
+            </div>
+            <span class="status development">IN DEVELOPMENT</span>
+        </div>
+
+        <div class="database-row">
+            <div>
+                <h3>Objectives</h3>
+                <p>Generator and objective interactions.</p>
+            </div>
+            <span class="status development">IN DEVELOPMENT</span>
+        </div>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>CHANGELOG</h2>
+        <span>PUBLIC RECORDS</span>
+    </div>
+
+
+    <div class="info-panel">
+
+        <h3>NO PUBLIC CHANGELOG ENTRIES</h3>
+
+        <p>
+            Development updates will be added here when
+            they are ready to be shared publicly.
+        </p>
+
+        <br>
+
+        <span class="status unknown">AWAITING ENTRIES</span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     ABOUT PAGE
+===================================== -->
+
+<section class="page" id="page-about">
+
+    <div class="page-header">
+
+        <div class="page-tag">ARCHIVE INFORMATION // 001</div>
+
+        <h1>ABOUT THE WIKI</h1>
+
+        <p>
+            Information about this archive, its purpose,
+            and the project it documents.
+        </p>
+
+        <span class="page-number">ARCHIVE 009</span>
+
+    </div>
+
+
+    <div class="info-panel">
+
+        <h3>WHAT IS BEYOND THE BITE?</h3>
+
+        <p>
+            Beyond the Bite is an upcoming asymmetrical,
+            round-based survival horror experience on Roblox.
+            Players take on opposing roles as Survivors and
+            Performers, with gameplay centered around
+            objectives, character abilities, and survival.
+        </p>
+
+    </div>
+
+
+    <div class="info-panel">
+
+        <h3>ABOUT THIS ARCHIVE</h3>
+
+        <p>
+            This wiki serves as a community information resource
+            documenting the characters, maps, gameplay systems,
+            and other publicly available information about
+            Beyond the Bite.
+        </p>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>INFORMATION LABELS</h2>
+        <span>DOCUMENTATION STANDARDS</span>
+    </div>
+
+
+    <div class="article-grid">
+
+        <div class="article-card">
+            <span class="status">CONFIRMED</span>
+            <h3>CONFIRMED INFORMATION</h3>
+            <p>
+                Information that has been officially established
+                or confirmed for the project.
+            </p>
+        </div>
+
+        <div class="article-card">
+            <span class="status planned">PLANNED</span>
+            <h3>PLANNED INFORMATION</h3>
+            <p>
+                Features and content currently intended
+                for a future release.
+            </p>
+        </div>
+
+        <div class="article-card">
+            <span class="status unknown">UNCONFIRMED</span>
+            <h3>UNCONFIRMED INFORMATION</h3>
+            <p>
+                Information that has not been officially
+                established or finalized.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="notice">
+
+        <div class="notice-icon">ⓘ</div>
+
+        <div>
+            <h3>INTELLECTUAL PROPERTY NOTICE</h3>
+
+            <p>
+                Beyond the Bite is a fan-made Roblox experience
+                inspired by Five Nights at Freddy's.
+                Five Nights at Freddy's and its associated
+                intellectual property belong to their respective
+                rights holders, including Scott Cawthon.
+                This wiki does not claim ownership of those properties.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div>
+            <div class="footer-title">
+                BEYOND THE BITE
+            </div>
+
+            <p class="footer-copy">
+                COMMUNITY ARCHIVES<br>
+                ARCHIVE VERSION 0.1
+            </p>
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#home" onclick="showPage('home')">HOME</a>
+
+            <a href="#performers" onclick="showPage('performers')">PERFORMERS</a>
+
+            <a href="#maps" onclick="showPage('maps')">MAPS</a>
+
+            <a href="#about" onclick="showPage('about')">ABOUT</a>
+
+        </div>
+
+        <p class="footer-copy">
+            © 2026 BEYOND THE BITE<br>
+            ALL RIGHTS RESERVED.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================
+     BOTTOM SYSTEM BAR
+===================================== -->
+
+<div class="system-bar">
+
+    <span>BTB ARCHIVE SYSTEM // 0.1</span>
+
+    <span id="footerClock">SYSTEM TIME: 00:00:00</span>
+
+    <span>CONNECTION: STABLE</span>
+
+</div>
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script>
+
+/* =====================================
+   PAGE NAVIGATION
+===================================== */
+
+function showPage(pageName) {
+
+    const pages = document.querySelectorAll(".page");
+
+    const links = document.querySelectorAll(".sidebar-link");
+
+    pages.forEach(page => {
+        page.classList.remove("active");
+    });
+
+    links.forEach(link => {
+        link.classList.remove("active");
+    });
+
+    const selectedPage = document.getElementById(
+        "page-" + pageName
+    );
+
+    if (!selectedPage) {
+        return;
+    }
+
+    selectedPage.classList.add("active");
+
+    const selectedLink = document.querySelector(
+        '.sidebar-link[data-page="' + pageName + '"]'
+    );
+
+    if (selectedLink) {
+        selectedLink.classList.add("active");
+    }
+
+    document.getElementById("sidebar").classList.remove("open");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    history.replaceState(
+        null,
+        "",
+        "#" + pageName
+    );
+}
+
+
+/* =====================================
+   LOAD PAGE FROM URL
+===================================== */
+
+function loadPageFromHash() {
+
+    const pageName = window.location.hash.replace("#", "");
+
+    if (pageName && document.getElementById("page-" + pageName)) {
+        showPage(pageName);
+    } else {
+        showPage("home");
+    }
+
+}
+
+window.addEventListener("load", loadPageFromHash);
+
+
+/* =====================================
+   MOBILE SIDEBAR
+===================================== */
+
+function toggleSidebar() {
+
+    document.getElementById("sidebar").classList.toggle("open");
+
+}
+
+
+/* =====================================
+   LIVE CLOCK
+===================================== */
+
+function updateClock() {
+
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("en-US", {
+        hour12: false
+    });
+
+    document.getElementById("clock").textContent = time;
+
+    document.getElementById("footerClock").textContent =
+        "SYSTEM TIME: " + time;
+
+}
+
+updateClock();
+
+setInterval(updateClock, 1000);
+
+
+/* =====================================
+   HOMEPAGE SEARCH
+===================================== */
+
+const searchInput = document.getElementById("wikiSearch");
+
+const searchableCards = document.querySelectorAll(".searchable");
+
+searchInput.addEventListener("input", function () {
+
+    const query = this.value.toLowerCase().trim();
+
+    searchableCards.forEach(card => {
+
+        const content = (
+            card.innerText + " " +
+            card.dataset.search
+        ).toLowerCase();
+
+        const matches = content.includes(query);
+
+        card.style.display = matches ? "" : "none";
+
+    });
+
+});
+
+
+/* =====================================
+   KEYBOARD SHORTCUTS
+===================================== */
+
+document.addEventListener("keydown", function(event) {
+
+    if (
+        event.key === "/" &&
+        document.activeElement.tagName !== "INPUT"
+    ) {
+
+        event.preventDefault();
+
+        showPage("home");
+
+        searchInput.focus();
+
+    }
+
+    if (event.key === "Escape") {
+
+        document.getElementById("sidebar").classList.remove("open");
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
