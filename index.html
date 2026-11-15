@@ -4,18 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Beyond the Bite | Official Archives</title>
+<title>Beyond the Bite | Official Wiki</title>
 
-<meta name="description" content="The Beyond the Bite Wiki — an archive documenting Performers, Survivors, locations, gameplay, and the world of Beyond the Bite.">
+<meta name="description" content="The Beyond the Bite Wiki — documenting Performers, Survivors, locations, gameplay, development, and the world of Beyond the Bite.">
 
 <meta name="theme-color" content="#09070e">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap');
-
-/* =========================================
-   GLOBAL VARIABLES
-========================================= */
 
 :root {
     --bg: #09070e;
@@ -39,10 +35,6 @@
 
     --sidebar-width: 245px;
 }
-
-/* =========================================
-   RESET
-========================================= */
 
 * {
     margin: 0;
@@ -157,9 +149,7 @@ input {
     top: 0;
     left: 0;
     right: 0;
-
     height: 48px;
-
     z-index: 100;
 
     display: flex;
@@ -169,12 +159,9 @@ input {
     padding: 0 20px;
 
     background: rgba(8, 6, 13, 0.96);
-
     border-bottom: 2px solid var(--accent);
 
-    box-shadow:
-        0 2px 18px rgba(189, 56, 220, 0.13);
-
+    box-shadow: 0 2px 18px rgba(189, 56, 220, 0.13);
     backdrop-filter: blur(12px);
 }
 
@@ -190,8 +177,7 @@ input {
     font-weight: 900;
     letter-spacing: 2px;
 
-    text-shadow:
-        0 0 12px rgba(189, 56, 220, 0.6);
+    text-shadow: 0 0 12px rgba(189, 56, 220, 0.6);
 }
 
 .brand-icon {
@@ -202,7 +188,6 @@ input {
     place-items: center;
 
     background: rgba(189, 56, 220, 0.15);
-
     border: 1px solid var(--accent);
 
     color: var(--accent-light);
@@ -211,26 +196,11 @@ input {
     font-weight: 900;
 
     clip-path: polygon(
-        50% 0%,
-        62% 10%,
-        78% 5%,
-        86% 20%,
-        100% 30%,
-        92% 48%,
-        100% 65%,
-        83% 76%,
-        80% 94%,
-        60% 90%,
-        50% 100%,
-        38% 90%,
-        19% 96%,
-        15% 78%,
-        0% 66%,
-        8% 48%,
-        0% 30%,
-        17% 20%,
-        23% 5%,
-        40% 10%
+        50% 0%, 62% 10%, 78% 5%, 86% 20%,
+        100% 30%, 92% 48%, 100% 65%, 83% 76%,
+        80% 94%, 60% 90%, 50% 100%, 38% 90%,
+        19% 96%, 15% 78%, 0% 66%, 8% 48%,
+        0% 30%, 17% 20%, 23% 5%, 40% 10%
     );
 }
 
@@ -240,7 +210,6 @@ input {
     gap: 20px;
 
     color: var(--muted);
-
     font-size: 9px;
     letter-spacing: 1.5px;
 }
@@ -257,18 +226,15 @@ input {
     display: flex;
     align-items: center;
     gap: 7px;
-
     color: #e66aff;
 }
 
 .online-dot {
     width: 6px;
     height: 6px;
-
     border-radius: 50%;
 
     background: #d74cff;
-
     box-shadow: 0 0 8px #d74cff;
 
     animation: pulse 1.8s infinite;
@@ -286,23 +252,19 @@ input {
 
 .sidebar {
     position: fixed;
-
     top: 48px;
     left: 0;
     bottom: 0;
 
     width: var(--sidebar-width);
-
     z-index: 90;
 
     padding: 25px 15px 35px;
 
     background: rgba(11, 8, 16, 0.96);
-
     border-right: 1px solid var(--border);
 
     overflow-y: auto;
-
     transition: transform 0.3s ease;
 }
 
@@ -318,7 +280,6 @@ input {
     margin: 15px 10px 10px;
 
     color: var(--dim);
-
     font-size: 9px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -330,43 +291,32 @@ input {
     gap: 12px;
 
     padding: 11px 12px;
-
     margin-bottom: 3px;
 
     color: var(--muted);
-
     font-size: 11px;
     letter-spacing: 0.5px;
 
     border: 1px solid transparent;
-
     transition: 0.2s;
-
     cursor: pointer;
 }
 
 .sidebar-link:hover {
     color: var(--text);
-
     background: rgba(189, 56, 220, 0.07);
 }
 
 .sidebar-link.active {
     color: var(--accent-light);
-
     background: rgba(189, 56, 220, 0.12);
-
     border-color: rgba(189, 56, 220, 0.2);
-
-    box-shadow:
-        inset 2px 0 0 var(--accent);
+    box-shadow: inset 2px 0 0 var(--accent);
 }
 
 .sidebar-icon {
     width: 17px;
-
     text-align: center;
-
     color: var(--accent);
     font-size: 15px;
 }
@@ -376,13 +326,11 @@ input {
     padding: 15px 12px;
 
     border: 1px solid var(--border);
-
     background: rgba(189, 56, 220, 0.035);
 }
 
 .sidebar-bottom h4 {
     color: var(--accent-light);
-
     font-family: var(--heading);
     font-size: 17px;
     letter-spacing: 2px;
@@ -390,9 +338,7 @@ input {
 
 .sidebar-bottom p {
     margin-top: 7px;
-
     color: var(--muted);
-
     font-size: 9px;
     line-height: 1.8;
 }
@@ -409,13 +355,9 @@ input {
 
 .page {
     display: none;
-
     width: min(1150px, calc(100% - 70px));
-
     margin: auto;
-
     padding: 50px 0 90px;
-
     animation: pageAppear 0.35s ease;
 }
 
@@ -441,56 +383,40 @@ input {
 
 .page-header {
     position: relative;
-
     padding: 30px 0 25px;
-
     border-bottom: 1px solid var(--border);
-
     margin-bottom: 30px;
 }
 
 .page-tag {
     color: var(--accent-light);
-
     font-size: 9px;
     letter-spacing: 3px;
-
     margin-bottom: 12px;
 }
 
 .page-header h1 {
     font-family: var(--heading);
-
     font-size: clamp(38px, 6vw, 60px);
-
     line-height: 0.95;
-
     font-weight: 900;
-
     letter-spacing: 3px;
-
     text-transform: uppercase;
 }
 
 .page-header p {
     max-width: 650px;
-
     margin-top: 15px;
-
     color: var(--muted);
-
     font-size: 11px;
     line-height: 1.9;
 }
 
 .page-number {
     position: absolute;
-
     right: 0;
     bottom: 25px;
-
     color: var(--dim);
-
     font-size: 10px;
     letter-spacing: 2px;
 }
@@ -504,29 +430,23 @@ input {
 
     display: flex;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
 
     text-align: center;
-
     position: relative;
-
     padding: 60px 20px;
-
     overflow: hidden;
 }
 
 .home-hero::before {
     content: "";
-
     position: absolute;
 
     width: 470px;
     height: 470px;
 
     border: 1px solid rgba(189, 56, 220, 0.1);
-
     border-radius: 50%;
 
     box-shadow:
@@ -539,40 +459,31 @@ input {
 .hero-emblem {
     width: 145px;
     height: 145px;
-
     position: relative;
 
     display: grid;
     place-items: center;
-
     margin-bottom: 28px;
 }
 
 .hero-ring {
     position: absolute;
-
     inset: 0;
 
     border: 12px solid var(--accent);
-
     border-radius: 50%;
 
-    filter:
-        drop-shadow(0 0 14px rgba(189, 56, 220, 0.6));
+    filter: drop-shadow(0 0 14px rgba(189, 56, 220, 0.6));
 
-    box-shadow:
-        inset 0 0 20px rgba(189, 56, 220, 0.2);
+    box-shadow: inset 0 0 20px rgba(189, 56, 220, 0.2);
 }
 
 .hero-ring::after {
     content: "";
-
     position: absolute;
-
     inset: -20px;
 
     border: 1px dashed rgba(230, 106, 255, 0.4);
-
     border-radius: 50%;
 
     animation: rotate 35s linear infinite;
@@ -594,26 +505,20 @@ input {
     place-items: center;
 
     background: #100a19;
-
     border: 2px solid rgba(230, 106, 255, 0.5);
 
     color: var(--accent-light);
-
     font-family: var(--heading);
     font-size: 35px;
     font-weight: 900;
 
-    text-shadow:
-        0 0 20px var(--accent);
+    text-shadow: 0 0 20px var(--accent);
 }
 
 .home-hero h1 {
     font-family: var(--heading);
-
     font-size: clamp(42px, 7vw, 76px);
-
     font-weight: 900;
-
     letter-spacing: 4px;
 
     background: linear-gradient(
@@ -626,18 +531,14 @@ input {
 
     -webkit-background-clip: text;
     background-clip: text;
-
     color: transparent;
 
-    filter:
-        drop-shadow(0 3px 0 #421055);
+    filter: drop-shadow(0 3px 0 #421055);
 }
 
 .hero-subtitle {
     margin-top: 15px;
-
     color: #d3bedc;
-
     font-size: 10px;
     letter-spacing: 4px;
 }
@@ -645,7 +546,6 @@ input {
 .hero-divider {
     width: 210px;
     height: 1px;
-
     margin: 23px auto;
 
     background: linear-gradient(
@@ -658,9 +558,7 @@ input {
 
 .hero-description {
     max-width: 490px;
-
     color: var(--muted);
-
     font-size: 11px;
     line-height: 2;
 }
@@ -671,28 +569,22 @@ input {
     gap: 12px;
 
     margin-top: 27px;
-
     padding: 13px 24px;
 
     background: rgba(189, 56, 220, 0.12);
-
     border: 1px solid var(--accent);
 
     color: #f3d9ff;
-
     font-size: 10px;
     letter-spacing: 2px;
 
     transition: 0.25s;
-
     cursor: pointer;
 }
 
 .primary-button:hover {
     background: var(--accent);
-
-    box-shadow:
-        0 0 25px rgba(189, 56, 220, 0.3);
+    box-shadow: 0 0 25px rgba(189, 56, 220, 0.3);
 }
 
 /* =========================================
@@ -703,7 +595,6 @@ input {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 15px;
 
     margin: 35px 0 20px;
@@ -714,19 +605,14 @@ input {
 
 .section-heading h2 {
     font-family: var(--heading);
-
     font-size: 25px;
-
     font-weight: 800;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
 }
 
 .section-heading span {
     color: var(--accent-light);
-
     font-size: 9px;
     letter-spacing: 2px;
 }
@@ -738,45 +624,34 @@ input {
 .search-box {
     display: flex;
     align-items: center;
-
     width: 100%;
-
     margin-bottom: 25px;
 
     background: rgba(17, 12, 25, 0.95);
-
     border: 1px solid var(--border);
-
     transition: 0.2s;
 }
 
 .search-box:focus-within {
     border-color: var(--accent);
-
-    box-shadow:
-        0 0 15px rgba(189, 56, 220, 0.12);
+    box-shadow: 0 0 15px rgba(189, 56, 220, 0.12);
 }
 
 .search-symbol {
     padding: 0 16px;
-
     color: var(--accent-light);
-
     font-size: 17px;
 }
 
 .search-box input {
     width: 100%;
-
     padding: 15px 12px 15px 0;
 
     border: none;
     outline: none;
 
     background: transparent;
-
     color: var(--text);
-
     font-size: 11px;
 }
 
@@ -790,51 +665,40 @@ input {
 
 .card-grid {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 14px;
 }
 
 .card {
     position: relative;
-
     min-height: 170px;
-
     padding: 21px;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(26, 17, 37, 0.96),
-            rgba(12, 9, 18, 0.98)
-        );
+    background: linear-gradient(
+        135deg,
+        rgba(26, 17, 37, 0.96),
+        rgba(12, 9, 18, 0.98)
+    );
 
     border: 1px solid var(--border);
-
     overflow: hidden;
-
     transition: 0.25s;
-
     cursor: pointer;
 }
 
 .card:hover {
     transform: translateY(-3px);
-
     border-color: var(--accent);
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(55, 22, 69, 0.8),
-            rgba(15, 9, 22, 0.98)
-        );
+    background: linear-gradient(
+        135deg,
+        rgba(55, 22, 69, 0.8),
+        rgba(15, 9, 22, 0.98)
+    );
 }
 
 .card::after {
     content: "";
-
     position: absolute;
 
     width: 120px;
@@ -844,7 +708,6 @@ input {
     bottom: -55px;
 
     border: 1px solid rgba(189, 56, 220, 0.18);
-
     border-radius: 50%;
 
     box-shadow:
@@ -854,38 +717,28 @@ input {
 
 .card-code {
     color: var(--accent-light);
-
     font-size: 9px;
     letter-spacing: 2px;
 }
 
 .card-icon {
     margin: 15px 0 8px;
-
     color: var(--accent-light);
-
     font-size: 23px;
 }
 
 .card h3 {
     font-family: var(--heading);
-
     font-size: 22px;
-
     font-weight: 700;
-
     letter-spacing: 1px;
-
     text-transform: uppercase;
 }
 
 .card p {
     margin-top: 7px;
-
     color: var(--muted);
-
     font-size: 10px;
-
     line-height: 1.7;
 }
 
@@ -895,19 +748,14 @@ input {
 
 .article-grid {
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
-
     gap: 14px;
 }
 
 .article-card {
     padding: 20px;
-
     background: var(--panel);
-
     border: 1px solid var(--border);
-
     transition: 0.2s;
 }
 
@@ -918,28 +766,21 @@ input {
 
 .article-card .article-label {
     color: var(--accent-light);
-
     font-size: 9px;
     letter-spacing: 2px;
 }
 
 .article-card h3 {
     margin-top: 10px;
-
     font-family: var(--heading);
-
     font-size: 24px;
-
     letter-spacing: 1px;
 }
 
 .article-card p {
     margin-top: 7px;
-
     color: var(--muted);
-
     font-size: 10px;
-
     line-height: 1.8;
 }
 
@@ -949,35 +790,27 @@ input {
 
 .info-panel {
     margin-top: 20px;
-
     padding: 22px;
 
     background: rgba(18, 13, 27, 0.9);
-
     border: 1px solid var(--border);
 }
 
 .info-panel h3 {
     font-family: var(--heading);
-
     font-size: 22px;
-
     letter-spacing: 2px;
-
     margin-bottom: 10px;
 }
 
 .info-panel p {
     color: var(--muted);
-
     font-size: 11px;
-
     line-height: 1.9;
 }
 
 .info-list {
     list-style: none;
-
     margin-top: 15px;
 }
 
@@ -987,9 +820,7 @@ input {
     border-bottom: 1px solid rgba(189, 56, 220, 0.1);
 
     color: var(--muted);
-
     font-size: 10px;
-
     line-height: 1.8;
 }
 
@@ -1007,29 +838,23 @@ input {
 
 .status {
     display: inline-block;
-
     padding: 5px 9px;
 
     border: 1px solid rgba(189, 56, 220, 0.3);
 
     color: var(--accent-light);
-
     font-size: 9px;
-
     letter-spacing: 1px;
-
     text-transform: uppercase;
 }
 
 .status.planned {
     color: #e6b85f;
-
     border-color: rgba(230, 184, 95, 0.35);
 }
 
 .status.unknown {
     color: #9d92a7;
-
     border-color: rgba(157, 146, 167, 0.3);
 }
 
@@ -1043,37 +868,28 @@ input {
     gap: 14px;
 
     margin-top: 25px;
-
     padding: 19px;
 
     background: rgba(230, 184, 95, 0.045);
-
     border: 1px solid rgba(230, 184, 95, 0.25);
 }
 
 .notice-icon {
     color: #e6b85f;
-
     font-size: 19px;
 }
 
 .notice h3 {
     font-family: var(--heading);
-
     font-size: 18px;
-
     letter-spacing: 2px;
-
     color: #e6b85f;
 }
 
 .notice p {
     margin-top: 6px;
-
     color: var(--muted);
-
     font-size: 10px;
-
     line-height: 1.8;
 }
 
@@ -1083,9 +899,7 @@ input {
 
 .map-feature {
     position: relative;
-
     min-height: 280px;
-
     padding: 30px;
 
     display: flex;
@@ -1106,38 +920,29 @@ input {
         );
 
     border: 1px solid var(--border);
-
     overflow: hidden;
 }
 
 .map-feature::before {
     content: "LOCATION 001";
-
     position: absolute;
-
     top: 25px;
     left: 25px;
 
     color: var(--accent-light);
-
     font-size: 9px;
     letter-spacing: 3px;
 }
 
 .map-feature::after {
     content: "F";
-
     position: absolute;
-
     right: 35px;
     top: 20px;
 
     font-family: var(--heading);
-
     font-size: 190px;
-
     font-weight: 900;
-
     color: rgba(189, 56, 220, 0.06);
 }
 
@@ -1146,9 +951,7 @@ input {
     z-index: 1;
 
     font-family: var(--heading);
-
     font-size: 45px;
-
     letter-spacing: 2px;
 }
 
@@ -1157,13 +960,10 @@ input {
     z-index: 1;
 
     max-width: 520px;
-
     margin-top: 10px;
 
     color: var(--muted);
-
     font-size: 11px;
-
     line-height: 1.9;
 }
 
@@ -1173,32 +973,24 @@ input {
 
 .database {
     border: 1px solid var(--border);
-
     background: rgba(15, 10, 22, 0.85);
 }
 
 .database-header,
 .database-row {
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     gap: 15px;
-
     padding: 15px 18px;
 }
 
 .database-header {
     color: var(--accent-light);
-
     font-size: 9px;
-
     letter-spacing: 2px;
 
     background: rgba(189, 56, 220, 0.06);
-
     border-bottom: 1px solid var(--border);
 }
 
@@ -1212,18 +1004,84 @@ input {
 
 .database-row h3 {
     font-family: var(--heading);
-
     font-size: 19px;
-
     letter-spacing: 1px;
 }
 
 .database-row p {
     margin-top: 5px;
-
     color: var(--muted);
-
     font-size: 9px;
+}
+
+/* =========================================
+   CREDITS
+========================================= */
+
+.credit-card {
+    position: relative;
+    padding: 25px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(26, 17, 37, 0.96),
+        rgba(12, 9, 18, 0.98)
+    );
+
+    border: 1px solid var(--border);
+    transition: 0.25s;
+    overflow: hidden;
+}
+
+.credit-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    background: var(--panel-hover);
+}
+
+.credit-card::after {
+    content: "";
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    right: -45px;
+    bottom: -55px;
+
+    border: 1px solid rgba(189, 56, 220, 0.18);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.credit-role {
+    color: var(--accent-light);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.credit-card h3 {
+    margin-top: 13px;
+    font-family: var(--heading);
+    font-size: 27px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.credit-card p {
+    margin-top: 9px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.9;
+}
+
+.credit-divider {
+    width: 45px;
+    height: 2px;
+    margin-top: 17px;
+    background: var(--accent);
 }
 
 /* =========================================
@@ -1232,57 +1090,41 @@ input {
 
 .footer {
     margin-left: var(--sidebar-width);
-
     padding: 25px 35px 45px;
 
     border-top: 1px solid var(--border);
-
     background: rgba(6, 5, 10, 0.9);
 }
 
 .footer-inner {
     max-width: 1150px;
-
     margin: auto;
 
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     gap: 20px;
 }
 
 .footer-title {
     color: var(--accent-light);
-
     font-family: var(--heading);
-
     font-size: 19px;
-
     font-weight: 900;
-
     letter-spacing: 2px;
 }
 
 .footer-copy {
     margin-top: 5px;
-
     color: var(--dim);
-
     font-size: 9px;
-
     line-height: 1.8;
 }
 
 .footer-links {
     display: flex;
-
     gap: 18px;
-
     color: var(--muted);
-
     font-size: 9px;
 }
 
@@ -1296,31 +1138,23 @@ input {
 
 .system-bar {
     position: fixed;
-
     left: 0;
     right: 0;
     bottom: 0;
-
     height: 22px;
-
     z-index: 110;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     padding: 0 12px;
 
     background: rgba(7, 5, 11, 0.96);
-
     border-top: 1px solid var(--border);
 
     color: #9270a3;
-
     font-size: 8px;
-
     letter-spacing: 1px;
 }
 
@@ -1330,15 +1164,10 @@ input {
 
 .mobile-menu {
     display: none;
-
     background: transparent;
-
     border: 1px solid var(--border);
-
     color: var(--accent-light);
-
     padding: 6px 10px;
-
     cursor: pointer;
 }
 
@@ -1347,7 +1176,6 @@ input {
 ========================================= */
 
 @media (max-width: 950px) {
-
     :root {
         --sidebar-width: 210px;
     }
@@ -1355,11 +1183,9 @@ input {
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
 
 @media (max-width: 700px) {
-
     .topbar {
         padding: 0 12px;
     }
@@ -1439,11 +1265,9 @@ input {
         flex-direction: column;
         align-items: flex-start;
     }
-
 }
 
 @media (max-width: 480px) {
-
     .card-grid,
     .article-grid {
         grid-template-columns: 1fr;
@@ -1476,7 +1300,6 @@ input {
     .system-bar span:last-child {
         display: none;
     }
-
 }
 </style>
 </head>
@@ -1519,7 +1342,7 @@ input {
 
         <span class="online-indicator">
             <span class="online-dot"></span>
-            ARCHIVE ONLINE
+            WIKI ONLINE
         </span>
 
         <span id="clock">00:00:00</span>
@@ -1594,6 +1417,11 @@ input {
         Updates
     </a>
 
+    <a class="sidebar-link" data-page="credits" onclick="showPage('credits')">
+        <span class="sidebar-icon">✦</span>
+        Credits & Team
+    </a>
+
     <a class="sidebar-link" data-page="about" onclick="showPage('about')">
         <span class="sidebar-icon">ⓘ</span>
         About the Wiki
@@ -1607,7 +1435,7 @@ input {
         <p>
             An asymmetrical survival horror experience.
             <br><br>
-            ARCHIVE VERSION: 0.1
+            WIKI VERSION: 0.1
             <br>
             GAME STATUS: PRE-ALPHA
         </p>
@@ -1640,13 +1468,13 @@ input {
         <h1>BEYOND THE BITE</h1>
 
         <p class="hero-subtitle">
-            THE OFFICIAL COMMUNITY ARCHIVES
+            THE OFFICIAL COMMUNITY WIKI
         </p>
 
         <div class="hero-divider"></div>
 
         <p class="hero-description">
-            Welcome to the Beyond the Bite archives.
+            Welcome to the Beyond the Bite Wiki.
             Explore the Performers, Survivors, locations,
             gameplay systems, and information surrounding
             the experience.
@@ -1656,14 +1484,14 @@ input {
 
         <button class="primary-button" onclick="showPage('performers')">
             <span>></span>
-            EXPLORE THE ARCHIVES
+            EXPLORE THE WIKI
         </button>
 
     </div>
 
 
     <div class="section-heading">
-        <h2>ARCHIVE DIRECTORY</h2>
+        <h2>WIKI DIRECTORY</h2>
         <span>DIRECTORY // 001</span>
     </div>
 
@@ -1674,7 +1502,7 @@ input {
         <input
             id="wikiSearch"
             type="text"
-            placeholder="SEARCH THE ARCHIVES..."
+            placeholder="SEARCH THE WIKI..."
             autocomplete="off"
         >
 
@@ -1729,6 +1557,14 @@ input {
             <h3>Lore</h3>
             <p>Explore the story and background of Beyond the Bite.</p>
             <button class="primary-button" onclick="showPage('lore')">OPEN DIRECTORY →</button>
+        </div>
+
+        <div class="card searchable" data-search="credits developers voice actors cherry divineva catsterva snortraps">
+            <span class="card-code">FILE 007</span>
+            <div class="card-icon">✦</div>
+            <h3>Credits & Team</h3>
+            <p>Meet the developers and voice actors contributing to Beyond the Bite.</p>
+            <button class="primary-button" onclick="showPage('credits')">VIEW CREDITS →</button>
         </div>
 
     </div>
@@ -1827,7 +1663,7 @@ input {
             them from completing their objectives.
         </p>
 
-        <span class="page-number">ARCHIVE 001</span>
+        <span class="page-number">WIKI 001</span>
 
     </div>
 
@@ -1956,7 +1792,7 @@ input {
             parts of the experience.
         </p>
 
-        <span class="page-number">ARCHIVE 002</span>
+        <span class="page-number">WIKI 002</span>
 
     </div>
 
@@ -2042,7 +1878,7 @@ input {
             its own atmosphere and gameplay environment.
         </p>
 
-        <span class="page-number">ARCHIVE 003</span>
+        <span class="page-number">WIKI 003</span>
 
     </div>
 
@@ -2111,7 +1947,7 @@ input {
 
             <p>
                 Fredbear's Pizzeria is the only map currently
-                documented in this archive. No additional locations
+                documented in this wiki. No additional locations
                 are being presented as confirmed maps.
             </p>
         </div>
@@ -2139,7 +1975,7 @@ input {
             objectives, movement, and interactions.
         </p>
 
-        <span class="page-number">ARCHIVE 004</span>
+        <span class="page-number">WIKI 004</span>
 
     </div>
 
@@ -2307,11 +2143,11 @@ input {
 
         <p>
             Character abilities are an important part of the
-            gameplay experience. This archive will document
+            gameplay experience. This wiki will document
             their functionality and behavior.
         </p>
 
-        <span class="page-number">ARCHIVE 005</span>
+        <span class="page-number">WIKI 005</span>
 
     </div>
 
@@ -2415,12 +2251,12 @@ input {
         <h1>ITEMS</h1>
 
         <p>
-            This archive documents equipment, interactable
+            This wiki documents equipment, interactable
             objects, and other items associated with the
             gameplay experience.
         </p>
 
-        <span class="page-number">ARCHIVE 006</span>
+        <span class="page-number">WIKI 006</span>
 
     </div>
 
@@ -2453,7 +2289,7 @@ input {
 
     <div class="page-header">
 
-        <div class="page-tag">STORY ARCHIVES // 001</div>
+        <div class="page-tag">STORY INFORMATION // 001</div>
 
         <h1>LORE</h1>
 
@@ -2463,14 +2299,14 @@ input {
             mysteries surrounding the experience.
         </p>
 
-        <span class="page-number">ARCHIVE 007</span>
+        <span class="page-number">WIKI 007</span>
 
     </div>
 
 
     <div class="info-panel">
 
-        <h3>STORY ARCHIVE</h3>
+        <h3>STORY INFORMATION</h3>
 
         <p>
             Lore documentation will be introduced as
@@ -2481,7 +2317,7 @@ input {
 
         <br>
 
-        <span class="status unknown">ARCHIVE RESTRICTED</span>
+        <span class="status unknown">INFORMATION RESTRICTED</span>
 
     </div>
 
@@ -2496,7 +2332,7 @@ input {
             <p>
                 Story information may contain spoilers.
                 Unreleased narrative details are intentionally
-                excluded from the public archive.
+                excluded from the public wiki.
             </p>
 
         </div>
@@ -2514,7 +2350,7 @@ input {
 
     <div class="page-header">
 
-        <div class="page-tag">DEVELOPMENT RECORDS // 001</div>
+        <div class="page-tag">DEVELOPMENT INFORMATION // 001</div>
 
         <h1>UPDATES</h1>
 
@@ -2523,14 +2359,14 @@ input {
             and announcements associated with Beyond the Bite.
         </p>
 
-        <span class="page-number">ARCHIVE 008</span>
+        <span class="page-number">WIKI 008</span>
 
     </div>
 
 
     <div class="section-heading">
         <h2>DEVELOPMENT STATUS</h2>
-        <span>PROJECT RECORD</span>
+        <span>PROJECT INFORMATION</span>
     </div>
 
 
@@ -2546,7 +2382,7 @@ input {
                 <h3>Round Management</h3>
                 <p>Round and role management systems.</p>
             </div>
-            <span class="status development">IN DEVELOPMENT</span>
+            <span class="status planned">IN DEVELOPMENT</span>
         </div>
 
         <div class="database-row">
@@ -2554,7 +2390,7 @@ input {
                 <h3>Character Development</h3>
                 <p>Performer characters, animations, and abilities.</p>
             </div>
-            <span class="status development">IN DEVELOPMENT</span>
+            <span class="status planned">IN DEVELOPMENT</span>
         </div>
 
         <div class="database-row">
@@ -2562,7 +2398,7 @@ input {
                 <h3>Movement Systems</h3>
                 <p>Player movement and stamina.</p>
             </div>
-            <span class="status development">IN DEVELOPMENT</span>
+            <span class="status planned">IN DEVELOPMENT</span>
         </div>
 
         <div class="database-row">
@@ -2570,7 +2406,7 @@ input {
                 <h3>Objectives</h3>
                 <p>Generator and objective interactions.</p>
             </div>
-            <span class="status development">IN DEVELOPMENT</span>
+            <span class="status planned">IN DEVELOPMENT</span>
         </div>
 
     </div>
@@ -2601,6 +2437,154 @@ input {
 
 
 <!-- =====================================
+     CREDITS & TEAM PAGE
+===================================== -->
+
+<section class="page" id="page-credits">
+
+    <div class="page-header">
+
+        <div class="page-tag">PROJECT CONTRIBUTORS // 001</div>
+
+        <h1>CREDITS & TEAM</h1>
+
+        <p>
+            Beyond the Bite is made possible through the work
+            and contributions of its development team and
+            voice actors. This page recognizes the people
+            contributing to the project.
+        </p>
+
+        <span class="page-number">WIKI 009</span>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>PROJECT LEADERSHIP</h2>
+        <span>DEVELOPMENT TEAM</span>
+    </div>
+
+
+    <div class="article-grid">
+
+        <div class="credit-card">
+
+            <span class="credit-role">PROJECT OWNER & LEAD DEVELOPER</span>
+
+            <h3>SNORTRAPS</h3>
+
+            <p>
+                Responsible for overseeing Beyond the Bite,
+                leading the development process, managing the
+                project's direction, and contributing to its
+                systems, gameplay, and overall design.
+            </p>
+
+            <div class="credit-divider"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section-heading">
+        <h2>VOICE ACTORS</h2>
+        <span>CHARACTER VOICE TALENT</span>
+    </div>
+
+
+    <div class="article-grid">
+
+        <div class="credit-card">
+
+            <span class="credit-role">MARIONETTE'S VOICE ACTOR</span>
+
+            <h3>CHERRY</h3>
+
+            <p>
+                Provides the voice for Marionette, contributing
+                character dialogue and vocal performances
+                that help bring the character to life.
+            </p>
+
+            <div class="credit-divider"></div>
+
+        </div>
+
+
+        <div class="credit-card">
+
+            <span class="credit-role">CIRCUS BABY'S VOICE ACTOR</span>
+
+            <h3>DIVINEVA</h3>
+
+            <p>
+                Provides the voice for Circus Baby, contributing
+                character dialogue and vocal performances
+                for the character.
+            </p>
+
+            <div class="credit-divider"></div>
+
+        </div>
+
+
+        <div class="credit-card">
+
+            <span class="credit-role">SPRINGTRAP'S VOICE ACTOR</span>
+
+            <h3>CATSTERVA</h3>
+
+            <p>
+                Provides the voice for Springtrap, contributing
+                character dialogue and vocal performances
+                for the character.
+            </p>
+
+            <div class="credit-divider"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-panel">
+
+        <h3>THANK YOU</h3>
+
+        <p>
+            We would like to recognize and thank everyone
+            contributing their time, creativity, and effort
+            toward Beyond the Bite. Every contribution helps
+            bring the project closer to its intended vision.
+        </p>
+
+    </div>
+
+
+    <div class="notice">
+
+        <div class="notice-icon">ⓘ</div>
+
+        <div>
+            <h3>CREDITS INFORMATION</h3>
+
+            <p>
+                This page recognizes the currently documented
+                project leadership and voice actors. Additional
+                contributors may be added as the development
+                team expands.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
      ABOUT PAGE
 ===================================== -->
 
@@ -2608,16 +2592,16 @@ input {
 
     <div class="page-header">
 
-        <div class="page-tag">ARCHIVE INFORMATION // 001</div>
+        <div class="page-tag">WIKI INFORMATION // 001</div>
 
         <h1>ABOUT THE WIKI</h1>
 
         <p>
-            Information about this archive, its purpose,
+            Information about this wiki, its purpose,
             and the project it documents.
         </p>
 
-        <span class="page-number">ARCHIVE 009</span>
+        <span class="page-number">WIKI 010</span>
 
     </div>
 
@@ -2639,7 +2623,7 @@ input {
 
     <div class="info-panel">
 
-        <h3>ABOUT THIS ARCHIVE</h3>
+        <h3>ABOUT THIS WIKI</h3>
 
         <p>
             This wiki serves as a community information resource
@@ -2729,8 +2713,8 @@ input {
             </div>
 
             <p class="footer-copy">
-                COMMUNITY ARCHIVES<br>
-                ARCHIVE VERSION 0.1
+                COMMUNITY WIKI<br>
+                WIKI VERSION 0.1
             </p>
         </div>
 
@@ -2741,6 +2725,8 @@ input {
             <a href="#performers" onclick="showPage('performers')">PERFORMERS</a>
 
             <a href="#maps" onclick="showPage('maps')">MAPS</a>
+
+            <a href="#credits" onclick="showPage('credits')">CREDITS</a>
 
             <a href="#about" onclick="showPage('about')">ABOUT</a>
 
@@ -2762,7 +2748,7 @@ input {
 
 <div class="system-bar">
 
-    <span>BTB ARCHIVE SYSTEM // 0.1</span>
+    <span>BTB WIKI SYSTEM // 0.1</span>
 
     <span id="footerClock">SYSTEM TIME: 00:00:00</span>
 
